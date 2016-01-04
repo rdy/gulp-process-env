@@ -24,7 +24,7 @@ module.exports = function(environment, fn) {
             if (env[k] === undefined) {
               delete process.env[k];
             } else {
-              process.env[k] = env[k]
+              process.env[k] = env[k];
             }
           });
           privates.delete(environment);

@@ -1,4 +1,5 @@
 # gulp-process-env
+[![Build Status](https://travis-ci.org/rdy/gulp-process-env.svg?branch=master)](https://travis-ci.org/rdy/gulp-process-env)
 
 A utility to allow setting and restoring of environment variables for streams, specifically with gulp.
 
