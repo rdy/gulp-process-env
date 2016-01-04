@@ -1,0 +1,8 @@
+{
+  "ignore": ["node_modules"],
+  "presets": ["es2015-loose", "stage-0"],
+  "plugins": [
+    "transform-object-assign",
+    "transform-runtime"
+  ]
+}
