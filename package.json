@@ -49,6 +49,6 @@
   },
   "dependencies": {
     "babel-runtime": "^6.3.19",
-    "through2-spy": "^2.0.0"
+    "through2": "^2.0.1"
   }
 }

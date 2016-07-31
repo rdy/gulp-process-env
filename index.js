@@ -1,11 +1,9 @@
-const spy = require('through2-spy');
-
-const noop = () => {};
+const {obj: through} = require('through2');
 
 const privates = new WeakMap();
 
 module.exports = function(environment, fn) {
-  const stream = spy.obj(() => {
+  const stream = through((chunk, enc, next) => {
     if (!privates.get(environment)) {
       const env = Object.keys(environment).reduce(function(memo, k) {
         memo[k] = process.env[k];
@@ -14,10 +12,11 @@ module.exports = function(environment, fn) {
       }, {});
       privates.set(environment, {env, fn});
     }
+    next(null, chunk);
   });
   return Object.assign(stream, {
     restore() {
-      return spy.obj(noop).once('finish', () => {
+      return through((chunk, env, next) => next(null, chunk), flush => {
         const {env, fn} = privates.get(environment);
         if (env) {
           Object.keys(env).forEach(k => {
@@ -30,6 +29,7 @@ module.exports = function(environment, fn) {
           privates.delete(environment);
           if (fn) fn();
         }
+        flush();
       });
     }
   });

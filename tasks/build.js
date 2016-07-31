@@ -20,5 +20,5 @@ gulp.task('babel', () => {
 gulp.task('build', done => runSequence('clean', 'babel', done));
 
 gulp.task('watch', ['build'], () => {
-  gulp.watch('src/**/*.js', ['babel']);
+  gulp.watch(['index.js', 'src/**/*.js'], ['babel']);
 });
