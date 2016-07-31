@@ -1,6 +1,6 @@
 {
   "name": "gulp-process-env",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "set and restore process environment variables for gulp streams",
   "main": "index.js",
   "scripts": {
