@@ -5,7 +5,7 @@ const mergeStream = require('merge-stream');
 const runSequence = require('run-sequence');
 
 gulp.task('clean', done => {
-  del(['dist', '!dist/.gitkeep']).then(() => done(), done);
+  del(['dist/*', '!dist/.gitkeep']).then(() => done(), done);
 });
 
 gulp.task('build', done => runSequence('clean', 'babel', done));
